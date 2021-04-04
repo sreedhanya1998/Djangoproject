@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{%extends 'mobile/base.html' %}
+{%block body_block%}
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+<!--    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>-->
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://blog.mozilla.org/wp-content/uploads/2017/03/real-mobile-2x-1400x770.png" class="d-block w-100" alt="..." width="100%">
+    </div>
+    <div class="carousel-item">
+      <img src="https://easetemplate.com/wp-content/uploads/edd/2017/01/stock-broker-free-bootstrap-templates.jpg" class="d-block w-100" alt="..." width="100%">
+    </div>
+
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<form method="post">
+  {%csrf_token%}
+  {{form.as_p}}
+  <input type="submit" name="search">
+</form>
+{%for mob in mobile%}
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <img src="{{mob.mobile_image.url}}" width="200" height="250">
+        <h5 class="card-title">{{mob.mobile_name}}</h5>
+        <p class="card-text">{{mob.price}}</p>
+        <p class="card-text">{{mob.status}}</p>
+        <a href="{%url 'view' mob.id%}" class="btn btn-primary">View</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+       <img src="{{mob.mobile_image.url}}" width="200" height="250">
+        <h5 class="card-title">{{mob.mobile_name}}</h5>
+        <p class="card-text">{{mob.price}}</p>
+         <p class="card-text">{{mob.status}}</p>
+        <a href="{%url 'view' mob.id%}" class="btn btn-primary">View</a>
+           <a href="{%url 'edit' mob.id%}" class="btn btn-primary">Edit</a>
+      </div>
+    </div>
+  </div>
+</div>
+ {%endfor%}
+{%endblock%}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+<body>
+<table>
+        {%for mobile in mobile%}
+    <tr>
+        <td><img src="{{mobile.mobile_image.url}}" height="30%" width="30%"></td>
+    </tr>
+    </table>
+    <table class="table table-dark table-striped">
+    <tr>
+        <td>mobile_name</td><td>{{mobile.mobile_name}}</td>
+    </tr>
+    <tr>
+        <td>price</td><td>{{mobile.price}}</td>
+    </tr>
+    <tr>
+        <td>memory</td><td>{{mobile.memory}}</td>
+    </tr>
+    <tr>
+        <td>size</td><td>{{mobile.size}}</td>
+    </tr>
+     <tr>
+        <td>battery</td><td>{{mobile.Battery}}</td>
+    </tr>
+     <tr>
+        <td>warranty</td><td>{{mobile.Warranty}}</td>
+    </tr>
+    <tr>
+                <td><a href="{%url 'status' %}" type="button" class="btn btn-primary">Buy now</a></td>
+    </tr>
+        {%endfor%}
+</table>
+
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>book_name</td>
+         <td>pages</td>
+         <td>price</td>
+         <td>author</td>
+    </tr>
+    {%for book in books%}
+    <tr>
+        <td>{{book.book_name}}</td>
+        <td>{{book.pages}}</td>
+        <td>{{book.price}}</td>
+        <td>{{book.author}}</td>
+        <td><a href="{%url 'view' book.id%}">View</a></td>
+        <td><a href="{%url 'update' book.id%}">Edit</a></td>
+        <td><a href="{%url 'delete' book.id%}">Delete</a></td>
+        <td><a href="{%url 'bookdetail' book.id%}">detail</a></td>
+    </tr>
+    {%endfor%}
+</table>
+</body>
+</html>
